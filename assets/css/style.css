@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(240, 240, 240);
+        width: 100vw;
+        height: 100vh;
+}
+
+#container{
+    display: none;
+
+    grid-template-columns: repeat(3, 20vw);
+    grid-template-rows: repeat(3, 33vh);
+
+    grid-template-areas: ". . . . ."
+                         "leftend left middle right rightend"
+                         ". . . . ."    
+                        ;
+} 
+.left{
+    grid-area: left;
+}
+.leftend{
+    grid-area: leftend;
+}
+
+.middle{
+    grid-area: middle;
+}
+
+.rightend{
+    grid-area: rightend;
+}
+.right{
+    grid-area: right
+}
+
+.cupOneImage,
+.cupTwoImage,
+.cupThreeImage,
+.cupFourImage,
+.cupFiveImage,
+.ball{
+    position: absolute;
+    transition: all 500ms ease;
+}
+
+:is(.cupOneImage,
+.cupTwoImage,
+.cupThreeImage,
+.cupFourImage,
+.cupFiveImage):hover{
+cursor: pointer;
+}
+
+
+
+.ball{
+    background-color: yellow;
+        width: 75px;
+        height: 75px;
+    border: 3px solid black;
+    border-radius: 50%;
+}
+.paragraph{
+    text-align: center;
+    font-weight: bold;
+}
+.arrow{
+    background-image: url('../imagens/arrowImage.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+        width: 75px;
+        height: 75px;
+    margin: auto;    
+}
+
+#play{
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}  
+
+#play > button{
+    font-size: 3rem;
+    border-radius: 5px;
+        height: 125px;
+        width: 350px;
+    animation: interativeButtons 1s infinite ease-in-out;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.8);
+}
+
+#modes{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px;
+}
+
+#modes > button{
+    font-size: 1.5rem;
+        height: 75px;
+        width: 200px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.803);
+}
+
+#modes > button:hover{
+    cursor: pointer;
+    animation: interativeButtons 3s ease-in-out infinite;
+}
+
+#buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#fill{
+        height: 375px;
+}
+.cupsApresentation{
+    display: flex;
+    justify-content: space-between;
+}
+.cup1{
+    margin-left: 100px;
+    transform: rotate(-20deg);
+    margin-top: 30px;
+}
+
+.ballingMiddle{
+    background-color: rgba(255, 255, 0, 0.589);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid black;
+    margin: auto;
+}
+
+.cup2{
+    margin-top: 30px;
+    margin-right: 100px;
+    transform: rotate(20deg);
+}
+
+@keyframes interativeButtons{
+   0%{
+    transform: scale(1);
+   }
+   50%{
+    transform: scale(1.15);
+   }
+   100%{
+    transform: scale(1);
+   }
+}
