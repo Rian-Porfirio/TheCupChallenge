@@ -25,6 +25,7 @@ const sound = document.querySelector('#sound');
 const refresh = document.querySelector('#refresh');
 const audio = document.querySelector('#audio');
 
+
 //getting the body rect for positioning and setting default positioning for cups orientation.
 let bodyRect = document.body.getBoundingClientRect();
 

@@ -100,6 +100,7 @@ cursor: pointer;
 }
 
 #play{
+    margin-top: 10px;
     display: flex;
     justify-content: center;
 }  
@@ -116,7 +117,7 @@ cursor: pointer;
 #modes{
     display: flex;
     justify-content: space-evenly;
-    padding: 30px;
+    padding-top: 20px;
 }
 
 #modes > button{
@@ -135,43 +136,47 @@ cursor: pointer;
 #buttons{
     display: flex;
     flex-direction: column;
+        height: 100%;
     gap: 20px;
 }
 
 #fill{
-        height: 375px;
+    margin: auto;
+        min-width: 70vw;
 }
+
 .cupsApresentation{
     display: flex;
+        gap: 30px;
     justify-content: space-between;
 }
 .cup1{
-    margin-left: 100px;
+    object-fit: contain;
     transform: rotate(-20deg);
-    margin-top: 30px;
 }
 
 .ballingMiddle{
     background-color: rgba(255, 255, 0, 0.589);
-    width: 100px;
-    height: 100px;
+        min-width: 100px;
+        height: 100px;  
+    object-fit: contain;
     border-radius: 50%;
     border: 3px solid black;
     margin: auto;
 }
 
 .cup2{
-    margin-top: 30px;
-    margin-right: 100px;
+    object-fit: contain;
     transform: rotate(20deg);
 }
 
 .unmuted{
+    position: relative;
     display: inline;
-        width: 50px;
+    width: 50px;
         height: 50px;
-    margin-left: 10px;
-    border: none;
+        margin-left: 10px;
+        border: none;
     background-image: url("../images/sound.png");
     background-size: cover;
 }
@@ -179,6 +184,12 @@ cursor: pointer;
 .unmuted:hover{
     cursor: pointer;
 }
+
+.butoes{
+        position: absolute;
+        display: flex;
+        gap: 5px;
+ }
 
 .muted{
     background-image: url("../images/muted.png");
@@ -196,6 +207,8 @@ cursor: pointer;
 
 #refresh{
     border-radius: 10%;
+        margin: auto;
+        height: 30px;
     padding: 3px;
 }
 #refresh:hover{
