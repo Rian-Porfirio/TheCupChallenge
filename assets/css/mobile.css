@@ -11,14 +11,14 @@
         gap: 0;
     }
     
-:is(.cupOneImage,
-.cupTwoImage,
-.cupThreeImage,
-.cupFourImage,
-.cupFiveImage) > img{
-    width: 125px;
-    height: 125px;
-}
+    :is(.cupOneImage,
+    .cupTwoImage,
+    .cupThreeImage,
+    .cupFourImage,
+    .cupFiveImage) > img{
+        width: 125px;
+        height: 125px;
+    }
 }
 
 @media (orientation: portrait){
