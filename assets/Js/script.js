@@ -24,7 +24,7 @@ const indicatorMore = document.querySelectorAll('.indicatorTwo');
 const sound = document.querySelector('#sound');
 const refresh = document.querySelector('#refresh');
 const audio = document.querySelector('#audio');
-
+const BUTOES = document.querySelector('.butoes');
 
 //getting the body rect for positioning and setting default positioning for cups orientation.
 let bodyRect = document.body.getBoundingClientRect();
@@ -57,7 +57,12 @@ GAME_MODE_ONE.addEventListener('click', theGame);
 GAME_MODE_TWO.addEventListener('click', TheCupChallenge);
 mainMenu.addEventListener('click', reload);
 sound.addEventListener('click', musics);
-refresh.addEventListener('click', reload)
+refresh.addEventListener('click', reload);
+window.addEventListener("resize", ()=>{
+  if (window.innerHeight > window.innerWidth) {
+    location.reload();
+  }
+});
 
 function musics(){
   clicks++
@@ -70,6 +75,7 @@ function musics(){
 
 
 function TheCupChallenge() {
+  BUTOES.style.display= "none";
   BUTTONS_CONTAINER.style.display = "none";
   CONTAINER.style.display = "grid";
   points = currentRound;
@@ -93,7 +99,7 @@ function TheCupChallenge() {
             cup_two_style = gettingPositions(MIDDLE_POSITION);
             cup_three_style = gettingPositions(RIGHT_POSITION);
             cup_four_style = gettingPositions(LEFT_END_POSITION);
-          cup_five_style = gettingPositions(RIGHT_END_POSITION);
+            cup_five_style = gettingPositions(RIGHT_END_POSITION);
 
           CUP_ONE_IMAGE.style.left =
           cup_one_style.elementLeft - bodyRect.left + "px";
@@ -105,7 +111,7 @@ function TheCupChallenge() {
           CUP_TWO_IMAGE.style.top =
           cup_two_style.elementTop - bodyRect.top + "px";
           
-          CUP_THREE_IMAGE.style.left =
+            CUP_THREE_IMAGE.style.left =
             cup_three_style.elementLeft - bodyRect.left + "px";
             CUP_THREE_IMAGE.style.top =
             cup_three_style.elementTop - bodyRect.top + "px";
@@ -256,13 +262,7 @@ function TheCupChallenge() {
 
                       alert("You Lose!");
                       if (points > Math.max(...PLAYER_POINTS)){
-                        alert(`***************************__NEW RECORD!!!__****************************
-+
-+
-+                                   YOUR NEW RECORD IS: ${points}
-+
-+
-+`);
+                        alert(`YOUR NEW RECORD IS: ${points}`);
                                 PLAYER_POINTS.push(points)
                                 countValueH = 0;
                                 countValueARROWH = 0;
@@ -325,6 +325,7 @@ function TheCupChallenge() {
   function theGame() {
     CUP_FIVE_IMAGE.remove();
     CUP_FOUR_IMAGE.remove();
+    BUTOES.style.display = "none";
     BUTTONS_CONTAINER.style.display = "none";
     CONTAINER.style.display = "grid";
     points = currentRound;
@@ -457,13 +458,7 @@ function TheCupChallenge() {
 
                     alert("You Lose!");
                     if (points > Math.max(...PLAYER_POINTS)) {
-                      alert(`***************************__NEW RECORD!!!__****************************
-+
-+
-+                                   YOUR NEW RECORD IS: ${points}
-+
-+
-+`);
+                      alert(`YOUR NEW RECORD IS: ${points}`);
                       PLAYER_POINTS.push(points);
                       countValue = 0;
                       countValueARROW = 0;
@@ -532,4 +527,12 @@ function gettingPositions(cupPosition) {
 }
 function reload() {
   location.reload();
+}
+
+function checkOrientation(){
+  if(window.innerHeight > window.innerWidth){
+    CONTAINER.style.display = 'none';
+    return;
+  }
+    CONTAINER.style.display = 'grid';
 }
